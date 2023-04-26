@@ -14,13 +14,13 @@
 log_to_file() {
     MSG=$1
 
-    TIME=$(date +'%Y%m%dT%H%M%S')
+    TIME=$(date +'%Y-%m-%dT%H:%M:%S')
     echo "$TIME $MSG" >> $LOG_FILE
 }
 log(){
     MSG=$1
 
-    TIME=$(date +'%Y%m%dT%H%M%S')
+    TIME=$(date +'%Y-%m-%dT%H:%M:%S')
     echo -e "$TIME $MSG"
 }
 log_title() {
@@ -110,6 +110,28 @@ EOF
     echo $soma_response
 }
 ##################################################################################
+# SOMA - Get DataPower firmware status
+##################################################################################
+somaGetFirmwareStatus() {
+    DP_USERNAME=$1
+    DP_PASSWORD=$2
+    DP_SOMA_URL=$3
+
+    SOMA_REQ=$(cat <<-EOF
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dp="http://www.datapower.com/schemas/management">
+    <soapenv:Body>
+        <dp:request>
+            <dp:get-status class="FirmwareStatus"/>
+        </dp:request>
+    </soapenv:Body>
+</soapenv:Envelope>
+EOF
+)
+
+    declare -a soma_response="$(runSoma $DP_USERNAME $DP_PASSWORD $DP_SOMA_URL "${SOMA_REQ}" '' '' '' 'false')"
+    echo $soma_response
+}
+##################################################################################
 # SOMA - Get File
 ##################################################################################
 somaGetFile() {
@@ -160,31 +182,48 @@ fi
 
 if [ -z "$DP_PASSWORD_SERVER0" ]; then
     read -sp "Enter the DataPower user password: " DP_PASSWORD_SERVER0
+    echo
 fi
 
 log_title "====================================================================================="
-log_title "Secure Backup the DataPower Gateways"
-log_info "Start: $(date)"
-log_info "DataPower Secure Backup folder: $DP_SB_FOLDER"
+log_title "Secure Backup the DataPower Gateway"
 log_title "====================================================================================="
+log_info "Start: $(date)"
+log_info "DataPower: $DP_SERVER0"
+log_info "DataPower Secure Backup folder: $DP_SB_FOLDER"
+log_info "====================================================================================="
 
+# Get the DataPower firmware details
+log_title "Checking firmware status"
+declare -a soma_resp_firmware_status="$(somaGetFirmwareStatus $DP_USER_SERVER0 $DP_PASSWORD_SERVER0 $DP_SOMA_URL)"
+soma_response_analysis=$(echo $soma_resp_firmware_status | grep -o '</FirmwareStatus>')
+if [ "${#soma_response_analysis}" = 0 ]; then
+    log_error "Failure"
+    log_error "$soma_resp_firmware_status"
+    exit
+fi
+firmware_version=$(echo $soma_resp_firmware_status | xmlstarlet sel -t -v "//Version")
+
+log_success "Firmware version: $firmware_version"
+log_info "====================================================================================="
 # Send the Secure Backup request
-log_info "Starting Secure Backup on $DP_SERVER0"
+log_title "Creating a Secure Backup"
 declare -a soma_response="$(somaSecureBackup $DP_USER_SERVER0 $DP_PASSWORD_SERVER0 $DP_SOMA_URL $DP_CERTIFICATE_SERVER0 $DP_SB_FOLDER)"
 
 soma_response_analysis=$(echo $soma_response | grep -o 'OK')
 if [ ! "$soma_response_analysis" = "OK" ]; then
-    log_error "Failure during Secure Bakcup call"
+    log_error "Failure"
     log_error "$soma_response"
     exit
 fi
-log_success "Secure Backup ended successfully"
+log_success "Success"
+log_info "====================================================================================="
 
 # Download the Secure Backup manifest file
-log_info "====================================================================================="
 log_title "Downloading Secure Backup files"
-log_title "====================================================================================="
+LOCAL_SB_FOLDER=$DP_SERVER0/$firmware_version/$SB_FOLDER
 log_info "Local Secure Backup folder: $LOCAL_SB_FOLDER"
+
 mkdir -p $LOCAL_SB_FOLDER
 log_info "Downloading $DP_SB_FOLDER/backupmanifest.xml"
 DP_FILE_TO_GET="$DP_SB_FOLDER/backupmanifest.xml"
@@ -222,7 +261,6 @@ done
 log_info "====================================================================================="
 log_info "Downloaded Secure Backup files:"
 log_info "$(ls -lh $LOCAL_SB_FOLDER)"
-log_title "Done"
 log_info "====================================================================================="
 
 if [ "$ADD_TO_GIT" = "true" ]; then
