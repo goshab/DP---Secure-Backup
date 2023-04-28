@@ -234,12 +234,10 @@ if [ ! "$analysis" = "$DP_FILE_TO_GET" ]; then
     log_error "$soma_response_get_file"
     exit
 fi
-log_success "File downloaded successfully"
 
 backupmanifest_b64=$(echo $soma_response_get_file | xmlstarlet sel -t -v "/*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='response']/*[local-name()='file']")
 $(echo -n $backupmanifest_b64 | base64 -d > $LOCAL_SB_FOLDER/backupmanifest.xml)
-# backupmanifest_xml=$(echo -n $backupmanifest_b64 | base64 -d)
-# echo $backupmanifest_xml > $LOCAL_SB_FOLDER/backupmanifest.xml
+log_success "File downloaded successfully"
 
 # Download all Secure Backup files per the manifest
 xmlstarlet sel -t -v '//backupmanifest/files/file/filename' --nl $LOCAL_SB_FOLDER/backupmanifest.xml |
@@ -253,11 +251,9 @@ while IFS= read -r cur_file; do
         log_error "$soma_response_get_file"
         exit
     fi
-    log_success "File downloaded successfully"
     file_b64=$(echo $soma_response_get_file | xmlstarlet sel -t -v "/*[local-name()='Envelope']/*[local-name()='Body']/*[local-name()='response']/*[local-name()='file']")
-    file_decoded=$(echo -n $file_b64 | base64 -d > $LOCAL_SB_FOLDER/$cur_file)
-    # file_decoded=$(echo $file_b64 | base64 -d)
-    # echo $file_decoded > $LOCAL_SB_FOLDER/$cur_file
+    $(echo -n $file_b64 | base64 -d > $LOCAL_SB_FOLDER/$cur_file)
+    log_success "File downloaded successfully"
 done
 log_info "====================================================================================="
 log_info "Downloaded Secure Backup files:"
