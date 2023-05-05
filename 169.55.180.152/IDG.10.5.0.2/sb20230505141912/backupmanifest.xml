@@ -1,0 +1,121 @@
+<SecureBackupManifest>
+<backupmanifest>
+ <version>IDG.10.5.0.2</version>
+ <timezone>UTC</timezone>
+ <config>autoconfig.cfg</config>
+ <time>2023-05-05T18:19:41Z</time>
+ <build>345566</build>
+ <builddate>2022/09/22 10:28:24</builddate>
+ <commoncriteria>off</commoncriteria>
+ <cryptomode>permissive</cryptomode>
+ <mtm>5725T09C</mtm>
+ <serialnumber>0000001</serialnumber>
+ <cryptoCertificate>datapower<FileName>cert:///datapower-sscert.pem</FileName></cryptoCertificate>
+ <licenses>
+  <license>MQ</license>
+  <license>TAM</license>
+  <license>DataGlue</license>
+  <license>JAXP-API</license>
+  <license>PKCS7-SMIME</license>
+  <license>SQL-ODBC</license>
+  <license>WebSphere-JMS</license>
+  <license>AppOpt</license>
+  <license>DCO</license>
+  <license>DCO-Oracle</license>
+  <license>B2B</license>
+  <license>IMS</license>
+ </licenses>
+ <ephemeralkey>MIIBowYJKoZIhvcNAQcDoIIBlDCCAZACAQAxggE8MIIBOAIBADAgMBQxEjAQBgNV
+BAMMCWRhdGFwb3dlcgIIOKvE4B9jH8QwDQYJKoZIhvcNAQEBBQAEggEABsCugy1q
+wLa7WU8f0UaP6tJ5mlnxvbzMKEcNjsehTj9ROZUkYmNi9uB+AiuEDgBYebCaElDU
+VUBZBGpOvH0DZg167pjwFseTkeM3f8I6YfpKJ+/azzuyrqdn1RwqSpgQj77n9Khu
+Vxu9QHpUUbts2o60c8z8IC81U1dltc1uj054yqDXB7UIdhy56EA+2OssK39+mOr+
++z/CV9BeK2dIKpUuKMT6/dGOum2TlRGoUkOQfI0NBpupyCST4tjva192Tn0BSdKY
+UkqjpZBroOurVgjudIRFA5WY6btL+9tlCaq7tSliRwzWf6TNjhCper1Z4LhXaPKT
+HLHjXC2TYNCBnTBLBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECGcRGZUSJGLNgCiB
+e94AqEYLwgy5LFq8CacDM+MjaZgGmNV4NZkrLYo3HMVN0rMdMIyO
+</ephemeralkey>
+ <datapowerephemeralkey>MIIB6wYJKoZIhvcNAQcDoIIB3DCCAdgCAQAxggGEMIIBgAIBADBoMGIxCzAJBgNV
+BAYTAlVTMQwwCgYDVQQKEwNJQk0xJzAlBgNVBAsTHldlYlNwaGVyZSBEYXRhUG93
+ZXIgQXBwbGlhbmNlczEcMBoGA1UEAxMTQ3VzdG9tZXIgUmVsZWFzZSBDQQICAOIw
+DQYJKoZIhvcNAQEBBQAEggEAgCqUj7Ah8JpCRf+lTznZ5B86/KWN8H9/GqVJ2w1c
+CUCHWZPHiV91WcYXGJy3kSU31KAbUuLS6YWqDO0Co37kIKZmABY7Hgq0HWZgEMvO
+X1dcrFVUVwllXRb4NsRRTIcUVSFXBBxvXNSV+lxuiXGGICkTLEDWVv7LMl33a3RF
+52m01E0p0tzxjMeG9C+ZMUoeZ16tn8IAu0sm5P7dQtEdzaP+rwZHQrrvScg+n2+x
+j/D8VTrw/YRWA4yRTZslkwSS9W2e9CymQ16eY+XppTprwsDRtWgSVy8DaYVOqBtu
+A+3hrCGV8WNok7k+0QfpwqtdilVcBw0g+G36ayehNgCUfzBLBgkqhkiG9w0BBwEw
+FAYIKoZIhvcNAwcECPAt1XudyLgpgCglPpvmqvEr0J1lJoBA/JCYOKCoPUQh4j4L
+lT7ryQ6xiqRIsMqUcKQL
+</datapowerephemeralkey>
+ <files>
+  <file>
+   <filename>root.tgz</filename>
+   <checksum>23543e789fd07ce66c2f588e633dd165d5a55220</checksum>
+   <filesize>1408</filesize>
+  </file>
+  <file>
+   <filename>config.tgz</filename>
+   <checksum>12f9dae979d0dd4c8c6b610469b46d42c93a71f0</checksum>
+   <filesize>14944</filesize>
+  </file>
+  <file>
+   <filename>cert.tgz</filename>
+   <checksum>f50722b4376d5eec273cad600748d77cd4769c08</checksum>
+   <filesize>4848</filesize>
+  </file>
+  <file>
+   <filename>sharedcert.tgz</filename>
+   <checksum>cb163eaeb91fc6c4d1bcd3b0e00dd305bbb21381</checksum>
+   <filesize>8704</filesize>
+  </file>
+  <file>
+   <filename>local.tgz</filename>
+   <checksum>2830e2cea4035b8bc1de8f58226b9af7f0e33a31</checksum>
+   <filesize>312248</filesize>
+  </file>
+  <file>
+   <filename>password-map.tgz</filename>
+   <checksum>23ef34a34d27db675028f58d51ae9aba0b4b9d2c</checksum>
+   <filesize>1176</filesize>
+  </file>
+  <file>
+   <filename>backupmanifest.xml</filename>
+  </file>
+ </files>
+</backupmanifest>
+<signature>MIIGTQYJKoZIhvcNAQcCoIIGPjCCBjoCAQExCTAHBgUrDgMCGjALBgkqhkiG9w0B
+BwGgggOvMIIDqzCCApOgAwIBAgICAOMwDQYJKoZIhvcNAQELBQAwYjELMAkGA1UE
+BhMCVVMxDDAKBgNVBAoTA0lCTTEnMCUGA1UECxMeV2ViU3BoZXJlIERhdGFQb3dl
+ciBBcHBsaWFuY2VzMRwwGgYDVQQDExNDdXN0b21lciBSZWxlYXNlIENBMB4XDTE1
+MDkwMzAyMzc0M1oXDTM4MDEwMTAwMDAwMFowczELMAkGA1UEBhMCVVMxDDAKBgNV
+BAoTA0lCTTEnMCUGA1UECxMeV2ViU3BoZXJlIERhdGFQb3dlciBBcHBsaWFuY2Vz
+MS0wKwYDVQQDEyRDb250YWluZXIgSURBRyBTZWN1cmUgQmFja3VwIFNpZ25pbmcw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDiXWKxq8I5au8Gxn1/cCLP
+l9EPpVaB/vysCn+Aa/FCRIocqkyZinpuBPyN8FVpI/fPtix9k9d47cvmUFLWZm9v
+/gh6gLAxUiRWABQwxqpKbrNuhxWyWjT33zygPSzKy8PIB8tpGNdQfoQ5bqW3aVvM
+j/sMqmE+SRKLWV51K6NJ7/eTvCrQYatsVqfXAfzmA64VhYP9676RQeM1qsCqQlwY
+37mGphiz1qnu85LQ6bydiJj/ZYZqYWdatrbb8kzfahfcnbOcYhp9lrZ7rAa5Tn7l
+bll0tc1Z1Cfiiz4fVcda+pvYRLQo8xVXbom9wcgmrQqTS0G/TmdqaRlbEek1Culn
+AgMBAAGjWjBYMB0GA1UdDgQWBBRNqjHtzBJ3mRuPCpKxFrFUJWJbOjAfBgNVHSME
+GDAWgBQIe24JyUSZS7o/YsuR3byCPMQhnTAJBgNVHRMEAjAAMAsGA1UdDwQEAwIG
+wDANBgkqhkiG9w0BAQsFAAOCAQEAgvMrSTKmi9XWOfZp22H2/t+CUJd7J7JmEZfw
+P6HSVJPNhOOF5acq8GYTkTj/rCJgMR9Q2pQYv3mzrLa5XOIAJKN1Xf73bCz17Ymr
+Gug2v09dKmwmrHwrmAaMuouUFSsTW0TypaZ8fSUqFpBFKkXvL1/ZGAQS2TLYg1kY
+ixAtw9JaYjWerr6o7BQ/fehnw4psH6z0df/INynfxI3SII7mP33SkQCXfpYchWeY
+szahfKgPtvjeh+BCTAU5Yg0lD9IeiPKkZKQJP7kxVgVjldsFs9ipS9GsTjvgvfkV
+MYl5CwXpsYoRI7DSTNyPfV15T7tztV0FXLyGMOVfdNQFZfL8OjGCAmgwggJkAgEB
+MGgwYjELMAkGA1UEBhMCVVMxDDAKBgNVBAoTA0lCTTEnMCUGA1UECxMeV2ViU3Bo
+ZXJlIERhdGFQb3dlciBBcHBsaWFuY2VzMRwwGgYDVQQDExNDdXN0b21lciBSZWxl
+YXNlIENBAgIA4zAHBgUrDgMCGqCB2DAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcB
+MBwGCSqGSIb3DQEJBTEPFw0yMzA1MDUxODE5NDFaMCMGCSqGSIb3DQEJBDEWBBQk
+1I75K9/uP6g704/G5MbdHB9ADjB5BgkqhkiG9w0BCQ8xbDBqMAsGCWCGSAFlAwQB
+KjALBglghkgBZQMEARYwCwYJYIZIAWUDBAECMAoGCCqGSIb3DQMHMA4GCCqGSIb3
+DQMCAgIAgDANBggqhkiG9w0DAgIBQDAHBgUrDgMCBzANBggqhkiG9w0DAgIBKDAN
+BgkqhkiG9w0BAQEFAASCAQAeAAK7jpD2QSNyLq7ZCUVYx5aSfoupMDcXeFvfeaz8
+Os28QfYTRnmXSDkf9O3CwRBdNVVffe2NTzpXfrcbrjhdCtm8bO06G5JEYLLI/SuY
+m+Zr7VlX+7yBLNsJNCPkZZV8/r0sHzd0qsrinoH4gjc4QadjAVN4r10opiw2gfei
+hvdZAR/dJdO2d9yHi7WL+gn6ndtxgbmQxg8xCRm78cmLqcXzV1Pu39t1I0wisuiZ
+itlTceE2TfHZBbuAwyloRHjZ6aRIeFFKa3KGp4Q+CPz3MDfCCpJbuNIp2SrCbJrT
+7t0yMwdCCBZQGC7E8ikpHQH+VeywcVaGPul0ae7DD8+O
+</signature>
+</SecureBackupManifest>
