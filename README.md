@@ -1,3 +1,5 @@
+The postings on this site are my own and don't necessarily represent IBM's positions, strategies or opinions.
+
 # DataPower Secure Backup automation
 
 This script is used to automate the DataPower Secure Backup process.
